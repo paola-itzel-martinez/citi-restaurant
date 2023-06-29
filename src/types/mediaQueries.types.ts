@@ -1,0 +1,5 @@
+export enum SCREEN_SIZE {
+  DESKTOP = 'DESKTOP',
+  TABLET = 'TABLET',
+  MOBILE = 'MOBILE',
+}
