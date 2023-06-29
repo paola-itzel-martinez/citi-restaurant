@@ -11,7 +11,7 @@ const GeneralComponent = (props: Omit<ButtonProps, "children">) => (
 );
 
 describe("<Button />", () => {
-  it(`Should show the label`, () => {
+  it("Should show the label", () => {
     customRender(<GeneralComponent variant={ButtonVariant.CARD} />);
 
     expect(screen.getByText(CHILDREN)).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe("<Button />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it(`Should call the onClick function when its clicked`, () => {
+  it("Should call the onClick function when its clicked", () => {
     const MOCK_ON_CLICK = jest.fn();
 
     customRender(

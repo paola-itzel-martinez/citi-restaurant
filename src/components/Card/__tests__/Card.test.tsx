@@ -10,7 +10,7 @@ const GeneralComponent = (props: Omit<CardProps, "children">) => (
 );
 
 describe("<Card />", () => {
-  it(`Should have a default css rules by default`, () => {
+  it("Should have a default css rules by default", () => {
     const { container } = customRender(<GeneralComponent />);
 
     expect(screen.getByText(CHILDREN)).toBeInTheDocument();
