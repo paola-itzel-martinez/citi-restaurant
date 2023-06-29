@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> Should have a default css rules when variant prop is CARD 1`] = `
+.c0 {
+  background: linear-gradient(115deg,#ff6f04,#ffc391);
+  border: unset;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: 'Roboto',sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  box-shadow: unset;
+  padding: 8px 32px;
+  white-space: nowrap;
+}
+
+.c0.selected,
+.c0:hover {
+  background: #ff6f04;
+  border: unset;
+  cursor: pointer;
+}
+
+@media (min-width:0px) and (max-width:599px) {
+  .c0 {
+    white-space: unset;
+  }
+}
+
+<div>
+  <button
+    class="c0"
+  >
+    Children
+  </button>
+</div>
+`;
+
+exports[`<Button /> Should have a default css rules when variant prop is MENU 1`] = `
+.c0 {
+  background: #eaeaea;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  color: #415058;
+  font-family: 'Roboto',sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: capitalize;
+  box-shadow: 0px 0.25px 1px rgba(0,0,0,0.039),0px 0.85px 3px rgba(0,0,0,0.19);
+  padding: 12px 32px;
+  white-space: nowrap;
+}
+
+.c0.selected,
+.c0:hover {
+  background: #ffffff;
+  border: 1px solid #ff6f04;
+  cursor: pointer;
+}
+
+@media (min-width:0px) and (max-width:599px) {
+  .c0 {
+    white-space: unset;
+  }
+}
+
+<div>
+  <button
+    class="c0"
+  >
+    Children
+  </button>
+</div>
+`;
