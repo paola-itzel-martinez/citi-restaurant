@@ -7,6 +7,7 @@ export const Page = styled.div`
   background-color: ${palette.WHITE};
   display: flex;
   flex-direction: column;
+  align-items:center;
   gap: 32px;
   padding: 42px;
   overflow-x: auto;
