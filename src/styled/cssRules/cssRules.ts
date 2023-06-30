@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { CSSMarginRules, CSSPaddingRules, CSSSpacingRules } from "types";
+import { CSSMarginRules, CSSPaddingRules, CSSSpacingRules } from "../../types";
 import { FormatRules } from "./cssRules.types";
 
 export const formatRules: FormatRules = (rule) => {
@@ -27,11 +27,11 @@ export const styledCSSMarginRules = (rules: CSSMarginRules) => {
   }
 
   return css`
-    margin-inline: ${formatRules(rules.mx)};
-    margin-top: ${formatRules(rules.mt) || formatRules(rules.my)};
-    margin-right: ${formatRules(rules.mr)};
-    margin-bottom: ${formatRules(rules?.my) || formatRules(rules.my)};
-    margin-left: ${formatRules(rules.ml)};
+    ${rules?.mx && `margin-inline: ${formatRules(rules.mx)};`};
+    ${rules?.mt && `margin-top: ${formatRules(rules.mt)};`};
+    ${rules?.mr && `margin-right: ${formatRules(rules.mr)};`};
+    ${rules?.mb && `margin-bottom: ${formatRules(rules.mb)};`};
+    ${rules?.ml && `margin-left: ${formatRules(rules.ml)};`};
   `;
 };
 
@@ -43,10 +43,10 @@ export const styledCSSPaddingRules = (rules: CSSPaddingRules) => {
   }
 
   return css`
-    padding-inline: ${formatRules(rules.px)};
-    padding-top: ${formatRules(rules.pt) || formatRules(rules.py)};
-    padding-right: ${formatRules(rules.pr)};
-    padding-bottom: ${formatRules(rules.pb) || formatRules(rules.pb)};
-    padding-left: ${formatRules(rules.pl)};
+    ${rules?.px && `padding-inline: ${formatRules(rules.px)};`};
+    ${rules?.pt && `padding-top: ${formatRules(rules.pt)};`};
+    ${rules?.pr && `padding-right: ${formatRules(rules.pr)};`};
+    ${rules?.pb && `padding-bottom: ${formatRules(rules.pb)};`};
+    ${rules?.pl && `padding-left: ${formatRules(rules.pl)};`};
   `;
 };

@@ -10,7 +10,7 @@ export const useBusinessCard: UseBusinessCard = ({
 }) => {
   const { isMobile } = useScreen();
   const [isLoaded, setIsLoaded] = useState(false);
-  const addRef = isMobile && (total - 7) === index;
+  const addRef = (total - 7) === index;
   const newRef = useRef(null);
   const ref = addRef ? newRef : null;
 
@@ -31,12 +31,12 @@ export const useBusinessCard: UseBusinessCard = ({
       { threshold: 1 }
     );
 
-    if (ref?.current) observer.observe(ref.current);
+    if (ref?.current && isMobile) observer.observe(ref.current);
 
     return () => {
       if (ref?.current) observer.unobserve(ref.current);
     };
-  }, [ref, fetchData, isLoaded]);
+  }, [ref, fetchData, isLoaded, isMobile]);
 
   return {
     ref,

@@ -2,7 +2,7 @@ import React from "react";
 import { BusinessCard, Dots, Typography } from "../../components";
 import { TypographyVariant } from "../../types";
 import { Filters } from "./components";
-import { useRestaurants } from "./hooks";
+import { useRestaurants } from "./hooks/useRestaurants";
 import { Cards, Wrapper } from "./Restaurants.styles";
 
 const TITLE = 'Restaurants';

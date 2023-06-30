@@ -61,4 +61,4 @@ const BusinessCard = (
   );
 };
 
-export default React.forwardRef(BusinessCard);
+export default React.memo(BusinessCard);
