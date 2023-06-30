@@ -1,16 +1,17 @@
 import React from "react";
 import { Dot, Wrapper } from "./Dots.styles";
 
-const BouncingDotsLoader = () => {
+const Dots = (
+  _: any,
+  ref: React.Ref<HTMLDivElement>
+) => {
   return (
-    <>
-      <Wrapper>
-        <Dot />
-        <Dot />
-        <Dot />
-      </Wrapper>
-    </>
+    <Wrapper ref={ref}>
+      <Dot />
+      <Dot />
+      <Dot />
+    </Wrapper>
   );
 };
 
-export default BouncingDotsLoader;
+export default React.forwardRef(Dots);

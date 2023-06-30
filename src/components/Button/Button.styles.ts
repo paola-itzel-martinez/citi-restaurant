@@ -48,6 +48,11 @@ const padding = theme.variants("mode", "variant", {
   [ButtonVariant.MENU]: { default: "12px 32px" },
 });
 
+const paddingMobile = theme.variants("mode", "variant", {
+  [ButtonVariant.CARD]: { default: "8px 32px" },
+  [ButtonVariant.MENU]: { default: "8px" },
+});
+
 const wrapperShadow = theme.variants("mode", "variant", {
   [ButtonVariant.CARD]: { default: "unset" },
   [ButtonVariant.MENU]: { default: shadow.NORMAL },
@@ -74,6 +79,9 @@ export const Wrapper = styled.button<ButtonCSS>`
   }
 
   @media ${MEDIA_MOBILE} {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: ${paddingMobile};
     white-space: unset;
   }
 `;
