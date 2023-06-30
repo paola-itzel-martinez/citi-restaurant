@@ -4,12 +4,14 @@ import { Card } from "../../components/Card";
 import { Divider } from "../../components/Divider";
 import { Image } from "../../components/Image";
 import { TypographyStyles } from "../../components/Typography";
-import { MEDIA_MOBILE } from "../../styled";
+import { MEDIA_MOBILE, palette } from "../../styled";
+
+const PICTURE_SIZE = '115px';
 
 export const Wrapper = styled(Card)`
   position: relative;
   align-items: center;
-  max-width: 200px;
+  width: 200px;
 
   @media ${MEDIA_MOBILE} {
     position: unset;
@@ -17,7 +19,6 @@ export const Wrapper = styled(Card)`
     flex-wrap: wrap;
     align-items: strech;
     width: 100%;
-    max-width: 100%;
   }
 `;
 
@@ -87,12 +88,18 @@ export const CardDivider = styled(Divider)`
 `;
 
 export const Picture = styled(Image)`
-  width: 135px;
-  height: 125px;
+  width: 125px;
+  height: 115px;
 
   @media ${MEDIA_MOBILE} {
     width: calc(45% - 16px);
-    min-width: 125px;
-    max-width: 150px;
+    min-width: ${PICTURE_SIZE};
+    max-width: ${PICTURE_SIZE};
   }
+`;
+
+export const DefaultImage = styled.div`
+  background-color: ${palette.PRIMARY_LIGHT};
+  width: ${PICTURE_SIZE};
+  height: ${PICTURE_SIZE};
 `;

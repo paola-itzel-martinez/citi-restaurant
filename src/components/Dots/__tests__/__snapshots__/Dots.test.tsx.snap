@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dots /> Should show all data with specific styles rules 1`] = `
+.c2 {
+  width: 16px;
+  height: 16px;
+  margin: 3px 6px;
+  border-radius: 50%;
+  background-color: #ff6f04;
+  opacity: 1;
+  -webkit-animation: loop 0.6s infinite alternate;
+  animation: loop 0.6s infinite alternate;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.c0 .c1:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c0 .c1:nth-child(3) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1 c2"
+    />
+    <div
+      class="c1 c2"
+    />
+    <div
+      class="c1 c2"
+    />
+  </div>
+</div>
+`;

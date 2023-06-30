@@ -10,18 +10,18 @@ const borderWidth = theme.variants("mode", "variant", {
 });
 
 const alignSelf = theme.variants("mode", "variant", {
-  [DividerVariant.HORIZONTAL]: { default: "undefined" },
+  [DividerVariant.HORIZONTAL]: { default: "unset" },
   [DividerVariant.VERTICAL]: { default: "stretch" },
 });
 
 const height = theme.variants("mode", "variant", {
-  [DividerVariant.HORIZONTAL]: { default: "undefined" },
+  [DividerVariant.HORIZONTAL]: { default: "unset" },
   [DividerVariant.VERTICAL]: { default: "auto" },
 });
 
 const width = theme.variants("mode", "variant", {
   [DividerVariant.HORIZONTAL]: { default: "100%" },
-  [DividerVariant.VERTICAL]: { default: "undefined" },
+  [DividerVariant.VERTICAL]: { default: "unset" },
 });
 
 export const Wrapper = styled.hr<DividerProps>`
