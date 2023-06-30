@@ -22,6 +22,8 @@ export const useBusinessCard: UseBusinessCard = ({
   };
 
   useEffect(() => {
+    const current = ref?.current;
+
     const observer = new IntersectionObserver(([element]) => {
         if (element.isIntersecting && !isLoaded) {
           fetchData();
@@ -31,10 +33,10 @@ export const useBusinessCard: UseBusinessCard = ({
       { threshold: 1 }
     );
 
-    if (ref?.current && isMobile) observer.observe(ref.current);
+    if (current && isMobile) observer.observe(current);
 
     return () => {
-      if (ref?.current) observer.unobserve(ref.current);
+      if (current) observer.unobserve(current);
     };
   }, [ref, fetchData, isLoaded, isMobile]);
 
