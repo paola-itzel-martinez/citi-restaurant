@@ -3,7 +3,10 @@ import { Business, Category } from "../../../types";
 import { UseRestaurants } from './useRestaurants.types';
 
 const LIMIT = 15;
+const API_URL = "https://proxy.cors.sh/https://api.yelp.com/v3/businesses"
 const SEARCH_QUERY = `/search?location=San Jose, CA 95127&term=restaurants&limit=${LIMIT}`;
+const NOT_SECRET_API_KEY = 'T1O6DrKzalA9Vtkabex1gTdCz2BgWjT2Z6xUbinSn_D7VxweQGgog9gh8Bpb3zwuxreeVH39oetBO9zk_V-fBMPDcKH2RW3M7n0Z5fgQ4SsheQQpieeYvCNzBX2eZHYx'
+const NOT_SECRET_PROXY_KEY = 'temp_95699ff3dba34ad98245de353050bcca'
 
 const fetchData = async ({
   setIsLoading,
@@ -16,7 +19,7 @@ const fetchData = async ({
   setIsLoading(true);
 
   try {
-    let url = `${process.env.REACT_APP_API_URL}${SEARCH_QUERY}&offset=${offset}`;
+    let url = `${API_URL}${SEARCH_QUERY}&offset=${offset}`;
 
     if (filter !== "") url += `&categories=${filter}`;
 
@@ -24,9 +27,9 @@ const fetchData = async ({
      url,
       {
         headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+          Authorization: `Bearer ${NOT_SECRET_API_KEY}`,
           accept: "application/json",
-          "x-cors-api-key": `${process.env.REACT_APP_PROXY_KEY}`,
+          "x-cors-api-key": `${NOT_SECRET_PROXY_KEY}`,
           "x-requested-with": "xmlhttprequest",
           "Access-Control-Allow-Origin": "*",
         },
@@ -85,27 +88,33 @@ export const useRestaurants: UseRestaurants = () => {
       setBusinesses,
       setOffset
     })
-  }, [filter, offset])
+  }, [filter, offset]);
+  
+  const handleFetchDataRef = useRef(handleFetchData);
+  
+  useEffect(() => {
+    handleFetchDataRef.current = handleFetchData;
+  }, [handleFetchData]);
 
   useEffect(() => {
+    const current = dotsRef.current;
+
     const observer = new IntersectionObserver(([element]) => {
         if (element.isIntersecting) handleFetchData();
       },
       { threshold: 1 }
     );
 
-    if (dotsRef?.current) {
-      observer.observe(dotsRef.current);
-    }
+    if (current) observer.observe(current);
 
     return () => {
-      if (dotsRef?.current) observer.unobserve(dotsRef.current);
+      if (current) observer.unobserve(current);
     };
   }, [dotsRef, handleFetchData]);
 
   useEffect(() => {
     setBusinesses([]);
-    handleFetchData();
+    handleFetchDataRef.current();
   }, [filter]);
 
   return {

@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Sandbox
+Open [https://codesandbox.io/p/github/paola-itzel-martinez/citi-restaurant](citi-restaurant)
+
 ## Available Scripts
 
 In the project directory, you can run:
