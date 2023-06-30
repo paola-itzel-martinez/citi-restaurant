@@ -4,11 +4,12 @@ import { ThemeProvider } from "styled-components";
 import { CustomRenderHookOptions, CustomRenderWrapperProps } from "../types";
 
 export const customRenderHook = ({
-  otherWrapper: OtherWrapper = null,
+  hook,
+  otherWrapper: OtherWrapper,
 }: CustomRenderHookOptions) => {
   const Wrapper = ({ children }: CustomRenderWrapperProps) => (
     <ThemeProvider theme={{ mode: "default" }}>
-      {OtherWrapper !== null ? (
+      {OtherWrapper !== undefined ? (
         <OtherWrapper>{children}</OtherWrapper>
       ) : (
         children

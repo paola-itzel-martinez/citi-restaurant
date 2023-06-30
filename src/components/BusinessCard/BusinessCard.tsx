@@ -4,38 +4,41 @@ import { StarsRating, Typography } from "..";
 import { BussinesCardProps } from "./BusinessCard.types";
 import {
   CardButton,
-  CardDivider,
   BusinessData,
+  CardDivider,
   DataRating,
-  DataDivider,
+  DefaultImage,
   Picture,
   Wrapper,
 } from "./BusinessCard.styles";
+import { useBusinessCard } from "./useBusinessCard";
 
 const CARD_BUTTON_TEXT = "View";
 
 const BusinessCard = (
   props: BussinesCardProps,
-  ref: React.Ref<HTMLDivElement>
 ) => {
-  const { price } = props;
-
-  const goToBusiness = (event: Event | React.BaseSyntheticEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    window.open(props.url, "_blank", "noopener,noreferrer");
-  };
+  const { goToBusiness, ref } = useBusinessCard({...props});
+  const { image_url, price } = props;
+  const Image = () => (
+    image_url ?
+      <Picture alt={props.name} src={props.image_url} /> :
+      <DefaultImage />
+  );
 
   return (
     <>
-      <Wrapper ref={ref} onClick={goToBusiness} {...props}>
-        <Picture alt={props.name} src={props.image_url} />
+      <Wrapper
+        ref={ref}
+        onClick={goToBusiness}
+        {...props}
+      >
+        <Image />
 
         <BusinessData>
           <Typography hasEllipsis>{props.name}</Typography>
 
-          <DataDivider />
+          <CardDivider className="data-divider" />
 
           <DataRating>
             <StarsRating rating={props.rating} />
@@ -53,7 +56,7 @@ const BusinessCard = (
         </BusinessData>
       </Wrapper>
 
-      <CardDivider />
+      <CardDivider className="final-divider" />
     </>
   );
 };

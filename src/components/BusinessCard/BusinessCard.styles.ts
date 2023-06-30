@@ -73,17 +73,19 @@ export const DataRating = styled.div`
   }
 `;
 
-export const DataDivider = styled(Divider)`
-  @media ${MEDIA_MOBILE} {
-    display: none;
-  }
-`;
-
 export const CardDivider = styled(Divider)`
-  display: none;
+  &.final-divider {
+    display: none;
 
-  @media ${MEDIA_MOBILE} {
-    display: block;
+    @media ${MEDIA_MOBILE} {
+      display: block;
+    }
+  }
+
+  &.data-divider {
+    @media ${MEDIA_MOBILE} {
+      display: none;
+    }
   }
 `;
 
