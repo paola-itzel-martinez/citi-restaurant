@@ -24,6 +24,9 @@ exports[`<Button /> Should have a default css rules when variant prop is CARD 1`
 
 @media (min-width:0px) and (max-width:599px) {
   .c0 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 8px 32px;
     white-space: unset;
   }
 }
@@ -61,6 +64,9 @@ exports[`<Button /> Should have a default css rules when variant prop is MENU 1`
 
 @media (min-width:0px) and (max-width:599px) {
   .c0 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 8px;
     white-space: unset;
   }
 }
