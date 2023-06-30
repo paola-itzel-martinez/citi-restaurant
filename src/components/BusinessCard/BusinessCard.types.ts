@@ -1,4 +1,4 @@
-import { Business } from "types";
+import { Business } from "../../types";
 import { CardProps } from "../Card/Card.types";
 
 export interface BussinesCardProps extends
