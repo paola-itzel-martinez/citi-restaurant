@@ -13,7 +13,20 @@ const WINDOW_OPEN_FN = jest.fn();
 
 window.open = WINDOW_OPEN_FN;
 
-const GeneralComponent = () => <BusinessCard {...BUSINESS} />;
+window.IntersectionObserver = jest.fn().mockImplementation(() => ({
+  observe: () => ({
+    isIntersecting: true
+  })
+}));
+
+const GeneralComponent = () => (
+  <BusinessCard
+    {...BUSINESS}
+    index={7}
+    total={15}
+    fetchData={jest.fn()}
+  />
+);
 
 describe("<BusinessCard />", () => {
   it('Should show all data with specific styles rules', () => {
